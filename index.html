@@ -75,7 +75,7 @@
             <div class="bg-slate-800/80 border-l-4 border-violet-500 p-6 rounded-r-xl">
                 <h4 class="text-violet-400 font-bold uppercase tracking-wider text-sm mb-2">Important Note</h4>
                 <p class="text-sm text-gray-300 leading-relaxed">
-                    The service we provide utilizes email SMTP forwarding using standard DNS setups. This means your new professional email acts as an alias connected to your existing inbox (like a standard Gmail account). If you prefer to have a completely separate, standalone inbox for your domain, that requires purchasing dedicated email hosting (which differs from email forwarding).<strong> Our standard service package focuses strictly on providing an affordable email forwarding service using your own domain.</strong>
+                    The service we provide utilizes email SMTP forwarding using standard DNS setups. This means your new professional email acts as an alias connected to your existing inbox (like a standard Gmail account). If you prefer to have a completely separate, standalone inbox for your domain, that requires purchasing dedicated email hosting (which differs from email forwarding). Our standard service package focuses strictly on providing an affordable email forwarding service using your own domain.
                 </p>
             </div>
         </div>
@@ -152,11 +152,11 @@
     <section class="py-24 px-4 max-w-3xl mx-auto" id="book">
         <div class="glass-card p-8 rounded-3xl">
             <h2 class="text-2xl font-bold text-white text-center mb-8 uppercase tracking-widest">Order Intake</h2>
-            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+            <form id="orderForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
                 <input type="hidden" name="access_key" value="d18bfd65-9618-428a-88c0-e6011ec0f238">
                 
                 <div class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">1. Full Name(s)</label>
                             <input type="text" name="name" placeholder="First and Last Name" class="form-input text-sm" required>
@@ -168,6 +168,10 @@
                         <div>
                             <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">Phone / Viber (Optional)</label>
                             <input type="tel" name="phone" placeholder="For setup coordination" class="form-input text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-1">Agent Code (Optional)</label>
+                            <input type="text" name="agent_code" placeholder="e.g., MICA2026" class="form-input text-sm border-emerald-500/30 focus:border-emerald-500">
                         </div>
                     </div>
 
@@ -305,6 +309,55 @@
 
         // Initialize script on page load
         window.onload = updateFormContext;
+
+        // --- AGENT CODE VALIDATION LOGIC ---
+        const form = document.getElementById('orderForm');
+        const agentInput = document.querySelector('input[name="agent_code"]');
+
+        form.addEventListener('submit', async function(event) {
+            // Let native HTML5 validation (like required checkboxes) run first
+            if (!form.checkValidity()) {
+                return; 
+            }
+
+            const typedCode = agentInput.value.trim().toUpperCase();
+
+            // If empty, let it submit normally
+            if (!typedCode) {
+                return; 
+            }
+
+            // Stop standard submission to check the code
+            event.preventDefault(); 
+
+            try {
+                // Fetch the text file
+                const response = await fetch('/agentcode.txt');
+                
+                if (!response.ok) {
+                    throw new Error("Could not find agentcode.txt");
+                }
+
+                const text = await response.text();
+                // Clean up text file into an array, ignoring blank lines
+                const validCodes = text.split('\n')
+                                       .map(code => code.trim().toUpperCase())
+                                       .filter(code => code.length > 0);
+
+                if (validCodes.includes(typedCode)) {
+                    // Code matches! Submit the form manually
+                    form.submit();
+                } else {
+                    // Code failed. Show error and focus the input box.
+                    alert("The Agent Code you entered is invalid. Please check for typos or leave it blank.");
+                    agentInput.focus();
+                }
+            } catch (error) {
+                console.warn("Validation skipped. Proceeding to submit.", error);
+                // Fallback: If the txt file fails to load (e.g. server error), let the form submit anyway so you don't lose the sale
+                form.submit(); 
+            }
+        });
     </script>
 </body>
 </html>
