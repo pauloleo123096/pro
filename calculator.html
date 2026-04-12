@@ -11,6 +11,16 @@
         h1, h2, h3, .brand { font-family: 'Rajdhani', sans-serif; }
         .glass-card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(71, 85, 105, 0.5); backdrop-filter: blur(10px); }
         input[type=range] { accent-color: #8b5cf6; }
+        
+        /* Hide arrows on number inputs for a cleaner look */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
     </style>
 </head>
 <body class="p-8 flex justify-center items-start min-h-screen">
@@ -23,41 +33,46 @@
 
         <div class="grid md:grid-cols-2 gap-12">
             <div class="space-y-6">
+                
                 <div>
-                    <div class="flex justify-between text-sm font-bold text-white mb-2">
-                        <span>Solo Tier (₱299)</span>
-                        <span id="soloVal" class="text-violet-400">0 sales</span>
+                    <div class="text-sm font-bold text-white mb-2">Solo Tier (₱299)</div>
+                    <input type="range" id="solo" min="0" max="100" value="0" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer mb-3">
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="soloNum" min="0" max="100" value="0" class="w-20 bg-slate-900 border border-slate-700 rounded-lg text-center text-sm text-violet-400 py-1.5 focus:outline-none focus:border-violet-500 transition-colors">
+                        <span class="text-[10px] text-gray-500 uppercase tracking-widest">Sales</span>
                     </div>
-                    <input type="range" id="solo" min="0" max="100" value="0" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
                 </div>
 
                 <div>
-                    <div class="flex justify-between text-sm font-bold text-white mb-2">
-                        <span>Student Starter (₱890)</span>
-                        <span id="studentVal" class="text-violet-400">0 sales</span>
+                    <div class="text-sm font-bold text-white mb-2">Student Starter (₱890)</div>
+                    <input type="range" id="student" min="0" max="100" value="0" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer mb-3">
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="studentNum" min="0" max="100" value="0" class="w-20 bg-slate-900 border border-slate-700 rounded-lg text-center text-sm text-violet-400 py-1.5 focus:outline-none focus:border-violet-500 transition-colors">
+                        <span class="text-[10px] text-gray-500 uppercase tracking-widest">Sales</span>
                     </div>
-                    <input type="range" id="student" min="0" max="100" value="0" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
                 </div>
 
                 <div>
-                    <div class="flex justify-between text-sm font-bold text-white mb-2">
-                        <span>Freelancer Pro (₱1,490)</span>
-                        <span id="freelancerVal" class="text-violet-400">0 sales</span>
+                    <div class="text-sm font-bold text-white mb-2">Freelancer Pro (₱1,490)</div>
+                    <input type="range" id="freelancer" min="0" max="50" value="0" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer mb-3">
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="freelancerNum" min="0" max="50" value="0" class="w-20 bg-slate-900 border border-slate-700 rounded-lg text-center text-sm text-violet-400 py-1.5 focus:outline-none focus:border-violet-500 transition-colors">
+                        <span class="text-[10px] text-gray-500 uppercase tracking-widest">Sales</span>
                     </div>
-                    <input type="range" id="freelancer" min="0" max="50" value="0" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
                 </div>
 
                 <div class="pt-4 border-t border-slate-700">
-                    <div class="flex justify-between text-sm font-bold text-white mb-2">
-                        <span>Agent Assisted Sales (%)</span>
-                        <span id="agentVal" class="text-emerald-400">0%</span>
+                    <div class="text-sm font-bold text-white mb-1">Agent Assisted Sales (%)</div>
+                    <p class="text-[10px] text-gray-500 mb-3">Percentage of total sales brought in by agents (50% commission on service fee).</p>
+                    <input type="range" id="agent" min="0" max="100" value="0" step="5" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer mb-3">
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="agentNum" min="0" max="100" value="0" step="5" class="w-20 bg-slate-900 border border-slate-700 rounded-lg text-center text-sm text-emerald-400 py-1.5 focus:outline-none focus:border-emerald-500 transition-colors">
+                        <span class="text-[10px] text-gray-500 uppercase tracking-widest">%</span>
                     </div>
-                    <p class="text-[10px] text-gray-500 mb-2">Percentage of total sales brought in by agents (50% commission on service fee).</p>
-                    <input type="range" id="agent" min="0" max="100" value="0" step="5" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
                 </div>
             </div>
 
-            <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-700 flex flex-col">
+            <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-700 flex flex-col h-full">
                 <h3 class="text-xs uppercase tracking-widest text-gray-400 font-bold mb-4">Monthly Projections</h3>
                 
                 <div class="space-y-3 mb-8 flex-grow">
@@ -80,7 +95,7 @@
                     <div id="outNet" class="text-4xl font-bold text-emerald-400">₱0.00</div>
                 </div>
 
-                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 mt-auto">
                     <div class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Time Investment</div>
                     <div class="text-sm text-gray-300"><span id="outHours" class="font-bold text-white">0</span> hours required per month <br><span class="text-[10px] italic">(assuming 15 mins per setup)</span></div>
                 </div>
@@ -102,11 +117,11 @@
             agent: document.getElementById('agent')
         };
 
-        const displays = {
-            solo: document.getElementById('soloVal'),
-            student: document.getElementById('studentVal'),
-            freelancer: document.getElementById('freelancerVal'),
-            agent: document.getElementById('agentVal')
+        const numInputs = {
+            solo: document.getElementById('soloNum'),
+            student: document.getElementById('studentNum'),
+            freelancer: document.getElementById('freelancerNum'),
+            agent: document.getElementById('agentNum')
         };
 
         const outputs = {
@@ -121,17 +136,21 @@
             return '₱' + num.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
         }
 
+        // Keep values strictly within min/max bounds
+        function validateNumber(inputElem, sourceElem) {
+            let val = parseInt(inputElem.value) || 0;
+            let max = parseInt(sourceElem.max);
+            let min = parseInt(sourceElem.min);
+            if (val > max) val = max;
+            if (val < min) val = min;
+            return val;
+        }
+
         function calculate() {
             const vSolo = parseInt(inputs.solo.value);
             const vStudent = parseInt(inputs.student.value);
             const vFreelancer = parseInt(inputs.freelancer.value);
             const vAgentPct = parseInt(inputs.agent.value) / 100;
-
-            // Update Input Displays
-            displays.solo.innerText = `${vSolo} sales`;
-            displays.student.innerText = `${vStudent} sales`;
-            displays.freelancer.innerText = `${vFreelancer} sales`;
-            displays.agent.innerText = `${parseInt(inputs.agent.value)}%`;
 
             // Calculate Metrics
             const totalSales = vSolo + vStudent + vFreelancer;
@@ -152,9 +171,26 @@
             outputs.hours.innerText = hours.toFixed(1);
         }
 
-        // Add Event Listeners
-        Object.values(inputs).forEach(input => {
-            input.addEventListener('input', calculate);
+        // Bi-directional event listeners
+        Object.keys(inputs).forEach(key => {
+            // When slider moves, update text box
+            inputs[key].addEventListener('input', () => {
+                numInputs[key].value = inputs[key].value;
+                calculate();
+            });
+
+            // When text box is typed in, update slider
+            numInputs[key].addEventListener('input', () => {
+                let validVal = validateNumber(numInputs[key], inputs[key]);
+                inputs[key].value = validVal;
+                calculate();
+            });
+
+            // If user leaves the text box blank or puts a weird value, reset it cleanly on blur
+            numInputs[key].addEventListener('blur', () => {
+                let validVal = validateNumber(numInputs[key], inputs[key]);
+                numInputs[key].value = validVal;
+            });
         });
 
         // Initial Calculation
