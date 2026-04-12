@@ -41,7 +41,7 @@
         <h1 class="text-5xl md:text-7xl font-bold mb-4 uppercase tracking-tight">Your Name. <span class="text-violet-500">Professional.</span></h1>
         <p class="max-w-xl text-gray-400 mb-8">Premium email routing for Filipino students and freelancers. One-time setup fee.</p>
         <div class="flex gap-4">
-            <a href="#original-2" class="bg-violet-600 px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-widest">Start Here</a>
+            <a href="#original-2" class="bg-violet-600 px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-violet-500 transition">Start Here</a>
         </div>
     </section>
 
@@ -56,12 +56,12 @@
 
     <section class="py-12 px-8 max-w-7xl mx-auto" id="original-2">
         <div class="grid md:grid-cols-2 gap-8">
-            <div class="glass-card p-8 rounded-3xl border-t-4 border-t-blue-500">
+            <div class="glass-card p-8 rounded-3xl border-t-4 border-t-blue-500 flex flex-col">
                 <h3 class="text-2xl font-bold text-white uppercase mb-2">Student Starter</h3>
                 <p class="text-gray-400 text-sm mb-4 italic">Best for CVs & Portfolios. High Volume.</p>
                 <div class="text-3xl font-bold text-white mb-6">$26.88 <span class="text-xs text-slate-500 font-normal">(₱1,609.57)</span></div>
                 <p class="text-xs text-violet-400 mb-4">*Includes $20 setup fee + domain cost</p>
-                <ul class="text-xs text-gray-300 space-y-3 mb-8">
+                <ul class="text-xs text-gray-300 space-y-3 mb-8 flex-grow">
                     <li>✔ 1 Alias @pro.lvlupgames.org</li>
                     <li>✔ <strong>Option for Custom Domain (.tech, .me, .org)</strong></li>
                     <li>✔ Lifetime routing to your personal Gmail</li>
@@ -70,12 +70,12 @@
                 <button onclick="selectTier('student')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-[10px] uppercase tracking-widest transition">Choose Starter</button>
             </div>
 
-            <div class="glass-card p-8 rounded-3xl border-t-4 border-t-emerald-500">
+            <div class="glass-card p-8 rounded-3xl border-t-4 border-t-emerald-500 flex flex-col">
                 <h3 class="text-2xl font-bold text-white uppercase mb-2">Freelancer Pro</h3>
                 <p class="text-gray-400 text-sm mb-4 italic">Build high-authority trust. B2B Premium.</p>
                 <div class="text-3xl font-bold text-white mb-6">$51.88 <span class="text-xs text-slate-500 font-normal">(₱3,106.57)</span></div>
                 <p class="text-xs text-violet-400 mb-4">*Includes $45 setup fee + domain cost</p>
-                <ul class="text-xs text-gray-300 space-y-3 mb-8">
+                <ul class="text-xs text-gray-300 space-y-3 mb-8 flex-grow">
                     <li>✔ High-authority Identity Setup</li>
                     <li>✔ <strong>Porkbun Custom Domain Ready</strong></li>
                     <li>✔ SMTP Send-Mail-As Configuration</li>
@@ -89,19 +89,24 @@
     <section class="py-20 bg-slate-900/50" id="new-tiers">
         <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-3 gap-6">
             <div class="glass-card p-6 rounded-2xl flex flex-col">
-                <h3 class="font-bold text-white mb-4 uppercase text-sm">Solo @lvlupgames.org</h3>
+                <h3 class="font-bold text-white mb-2 uppercase text-sm">Solo @pro.lvlupgames.org</h3>
+                <p class="text-xs text-gray-400 mb-6 flex-grow">Establish a clean, professional identity. We will exclusively use the <strong>@pro.lvlupgames.org</strong> domain as your designated email alias.</p>
                 <div class="text-2xl font-bold text-violet-400 mb-6">₱299</div>
-                <button onclick="selectTier('solo')" class="mt-auto bg-slate-800 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest">Select</button>
+                <button onclick="selectTier('solo')" class="mt-auto bg-slate-800 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-slate-700 transition">Select</button>
             </div>
-            <div class="glass-card p-6 rounded-2xl border-violet-500/50 flex flex-col">
-                <h3 class="font-bold text-white mb-4 uppercase text-sm">Family Heritage</h3>
+            
+            <div class="glass-card p-6 rounded-2xl border border-violet-500/50 flex flex-col">
+                <h3 class="font-bold text-white mb-2 uppercase text-sm">Family Heritage</h3>
+                <p class="text-xs text-gray-400 mb-6 flex-grow">Connect your entire household. As long as you request to add someone from the family, we will cater to it! Includes a <strong>maximum of 10 emails</strong>.</p>
                 <div class="text-2xl font-bold text-violet-400 mb-6">₱1,499</div>
-                <button onclick="selectTier('family')" class="mt-auto bg-violet-600 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest">Select</button>
+                <button onclick="selectTier('family')" class="mt-auto bg-violet-600 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-violet-500 transition">Select</button>
             </div>
+            
             <div class="glass-card p-6 rounded-2xl flex flex-col">
-                <h3 class="font-bold text-white mb-4 uppercase text-sm">Barkada Link</h3>
+                <h3 class="font-bold text-white mb-2 uppercase text-sm">Barkada Link</h3>
+                <p class="text-xs text-gray-400 mb-6 flex-grow">Perfect for large groups, gaming squads, or tight-knit friends. A <strong>maximum of 20 emails</strong> must be listed to secure the unified group domain.</p>
                 <div class="text-2xl font-bold text-violet-400 mb-6">₱2,499</div>
-                <button onclick="selectTier('barkada')" class="mt-auto bg-slate-800 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest">Select</button>
+                <button onclick="selectTier('barkada')" class="mt-auto bg-slate-800 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-slate-700 transition">Select</button>
             </div>
         </div>
     </section>
@@ -128,7 +133,7 @@
                 <div id="configSolo" class="p-4 bg-slate-900 rounded-lg">
                     <div class="flex">
                         <input type="text" name="alias" class="form-input rounded-r-none text-right" placeholder="username">
-                        <span class="bg-slate-800 border border-slate-700 rounded-r-lg px-3 flex items-center text-violet-400 text-xs font-bold">@lvlupgames.org</span>
+                        <span class="bg-slate-800 border border-slate-700 rounded-r-lg px-3 flex items-center text-violet-400 text-xs font-bold">@pro.lvlupgames.org</span>
                     </div>
                 </div>
 
@@ -145,7 +150,7 @@
                     </label>
                 </div>
 
-                <button type="submit" class="w-full bg-violet-600 py-4 rounded-xl font-bold text-xs uppercase tracking-[0.2em]">Submit Order</button>
+                <button type="submit" class="w-full bg-violet-600 py-4 rounded-xl font-bold text-xs uppercase tracking-[0.2em] hover:bg-violet-500 transition">Submit Order</button>
             </form>
         </div>
     </section>
@@ -163,7 +168,7 @@
                 <p><strong>4. Liability:</strong> We are not liable for outages from third-party providers like Google, Porkbun, or Cloudflare.</p>
                 <p><strong>5. Privacy:</strong> We collect your name and email only for setup. We never see your Gmail password.</p>
             </div>
-            <button onclick="toggleModal()" class="mt-8 w-full bg-slate-800 py-3 rounded-xl font-bold uppercase text-[10px]">Close</button>
+            <button onclick="toggleModal()" class="mt-8 w-full bg-slate-800 py-3 rounded-xl font-bold uppercase text-[10px] hover:bg-slate-700 transition">Close</button>
         </div>
     </div>
 
