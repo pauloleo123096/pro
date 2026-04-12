@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LVLUP PRO | Profit Simulator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        h1, h2, h3, .brand { font-family: 'Rajdhani', sans-serif; }
+        .glass-card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(71, 85, 105, 0.5); backdrop-filter: blur(10px); }
+        input[type=range] { accent-color: #8b5cf6; }
+    </style>
+</head>
+<body class="p-8 flex justify-center items-start min-h-screen">
+
+    <div class="glass-card w-full max-w-4xl p-8 rounded-3xl shadow-2xl">
+        <div class="mb-8 border-b border-slate-700 pb-4">
+            <h1 class="text-3xl font-bold text-white uppercase tracking-widest"><span class="text-violet-500">LVLUP PRO</span> Profit Simulator</h1>
+            <p class="text-sm text-gray-400 mt-2">Adjust your expected monthly sales below to forecast your net profit.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="space-y-6">
+                <div>
+                    <div class="flex justify-between text-sm font-bold text-white mb-2">
+                        <span>Solo Tier (₱299)</span>
+                        <span id="soloVal" class="text-violet-400">0 sales</span>
+                    </div>
+                    <input type="range" id="solo" min="0" max="100" value="0" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-sm font-bold text-white mb-2">
+                        <span>Student Starter (₱890)</span>
+                        <span id="studentVal" class="text-violet-400">0 sales</span>
+                    </div>
+                    <input type="range" id="student" min="0" max="100" value="0" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-sm font-bold text-white mb-2">
+                        <span>Freelancer Pro (₱1,490)</span>
+                        <span id="freelancerVal" class="text-violet-400">0 sales</span>
+                    </div>
+                    <input type="range" id="freelancer" min="0" max="50" value="0" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                </div>
+
+                <div class="pt-4 border-t border-slate-700">
+                    <div class="flex justify-between text-sm font-bold text-white mb-2">
+                        <span>Agent Assisted Sales (%)</span>
+                        <span id="agentVal" class="text-emerald-400">0%</span>
+                    </div>
+                    <p class="text-[10px] text-gray-500 mb-2">Percentage of total sales brought in by agents (50% commission on service fee).</p>
+                    <input type="range" id="agent" min="0" max="100" value="0" step="5" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                </div>
+            </div>
+
+            <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-700 flex flex-col">
+                <h3 class="text-xs uppercase tracking-widest text-gray-400 font-bold mb-4">Monthly Projections</h3>
+                
+                <div class="space-y-3 mb-8 flex-grow">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-300">Gross Revenue:</span>
+                        <span id="outGross" class="font-bold text-white">₱0.00</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-400">- Domain Costs ($6.88):</span>
+                        <span id="outDomains" class="font-bold text-red-400">- ₱0.00</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-400">- Agent Commissions:</span>
+                        <span id="outComms" class="font-bold text-red-400">- ₱0.00</span>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-700 pt-4 mb-6">
+                    <div class="text-xs uppercase tracking-widest text-gray-400 mb-1">Estimated Net Profit</div>
+                    <div id="outNet" class="text-4xl font-bold text-emerald-400">₱0.00</div>
+                </div>
+
+                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                    <div class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Time Investment</div>
+                    <div class="text-sm text-gray-300"><span id="outHours" class="font-bold text-white">0</span> hours required per month <br><span class="text-[10px] italic">(assuming 15 mins per setup)</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const USD_TO_PHP = 60;
+        const DOMAIN_COST_USD = 6.88;
+        const DOMAIN_COST_PHP = DOMAIN_COST_USD * USD_TO_PHP;
+
+        const prices = { solo: 299, student: 890, freelancer: 1490 };
+
+        const inputs = {
+            solo: document.getElementById('solo'),
+            student: document.getElementById('student'),
+            freelancer: document.getElementById('freelancer'),
+            agent: document.getElementById('agent')
+        };
+
+        const displays = {
+            solo: document.getElementById('soloVal'),
+            student: document.getElementById('studentVal'),
+            freelancer: document.getElementById('freelancerVal'),
+            agent: document.getElementById('agentVal')
+        };
+
+        const outputs = {
+            gross: document.getElementById('outGross'),
+            domains: document.getElementById('outDomains'),
+            comms: document.getElementById('outComms'),
+            net: document.getElementById('outNet'),
+            hours: document.getElementById('outHours')
+        };
+
+        function formatPHP(num) {
+            return '₱' + num.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }
+
+        function calculate() {
+            const vSolo = parseInt(inputs.solo.value);
+            const vStudent = parseInt(inputs.student.value);
+            const vFreelancer = parseInt(inputs.freelancer.value);
+            const vAgentPct = parseInt(inputs.agent.value) / 100;
+
+            // Update Input Displays
+            displays.solo.innerText = `${vSolo} sales`;
+            displays.student.innerText = `${vStudent} sales`;
+            displays.freelancer.innerText = `${vFreelancer} sales`;
+            displays.agent.innerText = `${parseInt(inputs.agent.value)}%`;
+
+            // Calculate Metrics
+            const totalSales = vSolo + vStudent + vFreelancer;
+            const gross = (vSolo * prices.solo) + (vStudent * prices.student) + (vFreelancer * prices.freelancer);
+            const domainsCost = (vStudent + vFreelancer) * DOMAIN_COST_PHP;
+            
+            const serviceFeePool = gross - domainsCost;
+            const comms = serviceFeePool * vAgentPct * 0.5; // 50% commission on the agent's share of sales
+            
+            const net = gross - domainsCost - comms;
+            const hours = (totalSales * 15) / 60;
+
+            // Update Output Dashboard
+            outputs.gross.innerText = formatPHP(gross);
+            outputs.domains.innerText = '- ' + formatPHP(domainsCost);
+            outputs.comms.innerText = '- ' + formatPHP(comms);
+            outputs.net.innerText = formatPHP(net);
+            outputs.hours.innerText = hours.toFixed(1);
+        }
+
+        // Add Event Listeners
+        Object.values(inputs).forEach(input => {
+            input.addEventListener('input', calculate);
+        });
+
+        // Initial Calculation
+        calculate();
+    </script>
+</body>
+</html>
