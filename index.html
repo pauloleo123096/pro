@@ -30,6 +30,7 @@
                 <div class="brand text-2xl font-bold tracking-tighter text-violet-500">LVLUP<span class="text-white">PRO</span></div>
             </div>
             <div class="hidden md:flex space-x-8 text-[10px] uppercase tracking-[0.2em]">
+                <a href="#about" class="hover:text-violet-400">About</a>
                 <a href="#original-2" class="hover:text-violet-400">The Originals</a>
                 <a href="#new-tiers" class="hover:text-violet-400">Bundles</a>
                 <a href="#book" class="text-violet-400 font-bold">Order</a>
@@ -37,7 +38,7 @@
         </div>
     </nav>
 
-    <section class="hero-gradient min-h-[50vh] flex flex-col items-center justify-center text-center px-4">
+    <section class="hero-gradient min-h-[50vh] flex flex-col items-center justify-center text-center px-4 pt-12 pb-20">
         <h1 class="text-5xl md:text-7xl font-bold mb-4 uppercase tracking-tight">Your Name. <span class="text-violet-500">Professional.</span></h1>
         <p class="max-w-xl text-gray-400 mb-8">Premium email routing for Filipino students and freelancers. One-time setup fee.</p>
         <div class="flex gap-4">
@@ -45,12 +46,35 @@
         </div>
     </section>
 
-    <section class="max-w-4xl mx-auto px-8 py-8 mt-[-3rem] relative z-10">
-        <div class="bg-slate-800/80 border border-slate-700 p-6 rounded-xl text-center shadow-lg">
-            <h4 class="text-violet-400 font-bold uppercase tracking-wider text-sm mb-2">Important Notice</h4>
-            <p class="text-sm text-gray-300">
-                The service we provide utilizes email SMTP forwarding using standard DNS setups. This means your new professional email acts as an alias connected to your existing inbox (like a standard Gmail account). If you prefer to have a completely separate, standalone inbox for your domain, that requires purchasing dedicated <strong>email hosting</strong> (which differs from <strong>email forwarding</strong>). Our standard service package focuses strictly on providing an affordable email forwarding setup using your own domain.
-            </p>
+    <section class="py-16 px-8 max-w-7xl mx-auto relative z-10 mt-[-4rem]" id="about">
+        <div class="glass-card p-8 md:p-12 rounded-3xl shadow-2xl">
+            <div class="mb-12 text-center">
+                <h2 class="text-3xl font-bold text-white uppercase tracking-widest mb-4">About <span class="text-violet-500">LVLUP Pro</span></h2>
+                <p class="text-gray-300 max-w-3xl mx-auto leading-relaxed">Founded by LeeYawn, LVLUP Pro is on a mission to make custom professional emails accessible to everyone—without the hassle of expensive domains or recurring monthly hosting fees.</p>
+            </div>
+
+            <h3 class="text-xl font-bold text-violet-400 uppercase tracking-wider mb-6 border-b border-slate-700 pb-2">How It Works:</h3>
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+                    <h4 class="font-bold text-white mb-3 text-lg flex items-center gap-2"><span class="text-violet-500">1.</span> Domain Procurement</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">We use your initial setup deposit to purchase and secure your desired domain name. This domain is registered entirely in your name. We will proactively inform you of the exact annual renewal fee, and if you ever decide you no longer need our services, we will gladly process a full domain transfer to you.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+                    <h4 class="font-bold text-white mb-3 text-lg flex items-center gap-2"><span class="text-violet-500">2.</span> Email Routing Setup</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">Once your domain is secured, we handle the backend configuration, setting up your new custom email address to route directly to your existing inbox.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+                    <h4 class="font-bold text-white mb-3 text-lg flex items-center gap-2"><span class="text-violet-500">3.</span> Seamless Integration</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">We provide easy-to-follow, step-by-step instructions on how to set up SMTP forwarding (via Google App Passwords) so you can reply and "Send As" your new custom email. Prefer a hands-on approach? We can hop on a quick Teams call and set it up for you remotely.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/80 border-l-4 border-violet-500 p-6 rounded-r-xl">
+                <h4 class="text-violet-400 font-bold uppercase tracking-wider text-sm mb-2">Important Note</h4>
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    The service we provide utilizes email SMTP forwarding using standard DNS setups. This means your new professional email acts as an alias connected to your existing inbox (like a standard Gmail account). If you prefer to have a completely separate, standalone inbox for your domain, that requires purchasing dedicated email hosting (which differs from email forwarding). Our standard service package focuses strictly on providing an affordable email forwarding service using your own domain.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -116,34 +140,61 @@
     <section class="py-24 px-4 max-w-2xl mx-auto" id="book">
         <div class="glass-card p-8 rounded-3xl">
             <h2 class="text-2xl font-bold text-white text-center mb-8 uppercase tracking-widest">Order Intake</h2>
-            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
                 <input type="hidden" name="access_key" value="d18bfd65-9618-428a-88c0-e6011ec0f238">
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" name="name" placeholder="Full Name" class="form-input text-sm" required>
-                    <input type="email" name="email" placeholder="Current Gmail" class="form-input text-sm" required>
-                </div>
+                <div class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">1. Full Name(s)</label>
+                            <input type="text" name="name" placeholder="First and Last Name" class="form-input text-sm" required>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">2. Routing Email</label>
+                            <input type="email" name="routing_email" placeholder="Personal Email (e.g. your@gmail.com)" class="form-input text-sm" required>
+                        </div>
+                    </div>
 
-                <select name="tier" id="tierSelect" onchange="toggleForm()" class="form-input text-sm bg-slate-900 border-slate-700">
-                    <option value="student">Student Starter ($14.88 / ₱890.00)</option>
-                    <option value="freelancer">Freelancer Pro ($51.88 / ₱3,106.57)</option>
-                    <option value="solo" selected>Solo Identity ($4.99 / ₱299.00)</option>
-                    <option value="family">Family Heritage ($24.99 / ₱1,496.00)</option>
-                    <option value="barkada">Barkada Link ($41.99 / ₱2,514.00)</option>
-                </select>
+                    <div>
+                        <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">Select Package Tier</label>
+                        <select name="tier" id="tierSelect" onchange="updateFormContext()" class="form-input text-sm bg-slate-900 border-slate-700">
+                            <option value="student">Student Starter ($14.88 / ₱890.00)</option>
+                            <option value="freelancer">Freelancer Pro ($51.88 / ₱3,106.57)</option>
+                            <option value="solo" selected>Solo Identity ($4.99 / ₱299.00)</option>
+                            <option value="family">Family Heritage ($24.99 / ₱1,496.00)</option>
+                            <option value="barkada">Barkada Link ($41.99 / ₱2,514.00)</option>
+                        </select>
+                    </div>
 
-                <div id="configSolo" class="p-4 bg-slate-900 rounded-lg">
-                    <div class="flex">
-                        <input type="text" name="alias" class="form-input rounded-r-none text-right" placeholder="username">
-                        <span class="bg-slate-800 border border-slate-700 rounded-r-lg px-3 flex items-center text-violet-400 text-xs font-bold">@pro.lvlupgames.org</span>
+                    <div>
+                        <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">3. Domain Request</label>
+                        <input type="text" name="domain_request" placeholder="e.g., myname.org (or type 'N/A' if using @pro.lvlupgames.org)" class="form-input text-sm" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">4. Preferred Email(s)</label>
+                        <textarea name="preferred_emails" placeholder="e.g., hello@... (For Family/Barkada tiers, list all requested aliases here)" class="form-input text-sm" rows="3" required></textarea>
+                    </div>
+
+                    <div class="p-4 bg-slate-900/80 rounded-lg border border-slate-700">
+                        <h4 class="text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-3">5. Extras & Add-ons</h4>
+                        
+                        <label class="flex items-start space-x-3 cursor-pointer mb-3">
+                            <input type="checkbox" name="addon_landing_page" id="addonLandingPage" class="mt-1">
+                            <span class="text-xs text-gray-300 flex-col flex">
+                                <span>Custom Landing Page Deployment</span>
+                                <span id="landingPageHint" class="text-[10px] text-gray-500 italic">(Available as Add-on)</span>
+                            </span>
+                        </label>
+                        
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="checkbox" name="addon_priority" class="mt-1">
+                            <span class="text-xs text-gray-300">Priority 24-Hour Setup Rush</span>
+                        </label>
                     </div>
                 </div>
 
-                <div id="configCustom" class="hidden p-4 bg-slate-900 rounded-lg">
-                    <input type="text" name="custom_req" class="form-input" placeholder="Desired .tech, .me, or .org domain">
-                </div>
-
-                <div class="pt-4">
+                <div class="pt-2">
                     <label class="flex items-start space-x-3 cursor-pointer">
                         <input type="checkbox" required class="mt-1">
                         <span class="text-[10px] text-gray-500 uppercase tracking-tighter leading-tight">
@@ -182,22 +233,36 @@
         function toggleModal() {
             document.getElementById('termsModal').classList.toggle('active');
         }
-        function toggleForm() {
-            const val = document.getElementById('tierSelect').value;
-            const solo = document.getElementById('configSolo');
-            const custom = document.getElementById('configCustom');
-            
-            solo.classList.add('hidden');
-            custom.classList.add('hidden');
-            
-            if (val === 'solo' || val === 'student' || val === 'family' || val === 'barkada') solo.classList.remove('hidden');
-            else custom.classList.remove('hidden');
+
+        function updateFormContext() {
+            const tier = document.getElementById('tierSelect').value;
+            const lpCheckbox = document.getElementById('addonLandingPage');
+            const lpHint = document.getElementById('landingPageHint');
+
+            // Handle Landing Page Add-on Logic
+            if (tier === 'freelancer') {
+                lpCheckbox.checked = true;
+                lpCheckbox.disabled = true;
+                lpHint.innerHTML = "(Included in Freelancer Pro)";
+                lpHint.classList.add("text-emerald-400");
+                lpHint.classList.remove("text-gray-500");
+            } else {
+                lpCheckbox.checked = false;
+                lpCheckbox.disabled = false;
+                lpHint.innerHTML = "(Available as Add-on)";
+                lpHint.classList.add("text-gray-500");
+                lpHint.classList.remove("text-emerald-400");
+            }
         }
+
         function selectTier(t) {
             document.getElementById('tierSelect').value = t;
-            toggleForm();
+            updateFormContext();
             document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
         }
+
+        // Initialize script on page load
+        window.onload = updateFormContext;
     </script>
 </body>
 </html>
