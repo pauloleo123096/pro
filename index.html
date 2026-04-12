@@ -59,13 +59,14 @@
             <div class="glass-card p-8 rounded-3xl border-t-4 border-t-blue-500 flex flex-col">
                 <h3 class="text-2xl font-bold text-white uppercase mb-2">Student Starter</h3>
                 <p class="text-gray-400 text-sm mb-4 italic">Best for CVs & Portfolios. High Volume.</p>
-                <div class="text-3xl font-bold text-white mb-6">$26.88 <span class="text-xs text-slate-500 font-normal">(₱1,609.57)</span></div>
-                <p class="text-xs text-violet-400 mb-4">*Includes $20 setup fee + domain cost</p>
+                <div class="text-3xl font-bold text-white mb-6">$14.88 <span class="text-xs text-slate-500 font-normal">(₱890.00)</span></div>
+                <p class="text-xs text-violet-400 mb-4">*Includes $8 setup fee + domain cost</p>
                 <ul class="text-xs text-gray-300 space-y-3 mb-8 flex-grow">
                     <li>✔ 1 Alias @pro.lvlupgames.org</li>
                     <li>✔ <strong>Option for Custom Domain (.tech, .me, .org)</strong></li>
                     <li>✔ Lifetime routing to your personal Gmail</li>
                     <li>✔ Self-serve Setup (Instruction Manual)</li>
+                    <li class="text-gray-400 border border-slate-700 p-2 rounded-lg bg-slate-900/50 mt-2">➕ Custom Landing Page (Available as Add-on)</li>
                 </ul>
                 <button onclick="selectTier('student')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-[10px] uppercase tracking-widest transition">Choose Starter</button>
             </div>
@@ -80,6 +81,7 @@
                     <li>✔ <strong>Porkbun Custom Domain Ready</strong></li>
                     <li>✔ SMTP Send-Mail-As Configuration</li>
                     <li>✔ Premium Remote Teams Support Call</li>
+                    <li>✔ Includes Custom Landing Page Deployment</li>
                 </ul>
                 <button onclick="selectTier('freelancer')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-[10px] uppercase tracking-widest transition">Choose Pro</button>
             </div>
@@ -91,21 +93,21 @@
             <div class="glass-card p-6 rounded-2xl flex flex-col">
                 <h3 class="font-bold text-white mb-2 uppercase text-sm">Solo @pro.lvlupgames.org</h3>
                 <p class="text-xs text-gray-400 mb-6 flex-grow">Establish a clean, professional identity. We will exclusively use the <strong>@pro.lvlupgames.org</strong> domain as your designated email alias.</p>
-                <div class="text-2xl font-bold text-violet-400 mb-6">₱299</div>
+                <div class="text-3xl font-bold text-white mb-6">$4.99 <span class="text-sm text-violet-400 font-normal">(₱299)</span></div>
                 <button onclick="selectTier('solo')" class="mt-auto bg-slate-800 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-slate-700 transition">Select</button>
             </div>
             
             <div class="glass-card p-6 rounded-2xl border border-violet-500/50 flex flex-col">
                 <h3 class="font-bold text-white mb-2 uppercase text-sm">Family Heritage</h3>
                 <p class="text-xs text-gray-400 mb-6 flex-grow">Connect your entire household. As long as you request to add someone from the family, we will cater to it! Includes a <strong>maximum of 10 emails</strong>.</p>
-                <div class="text-2xl font-bold text-violet-400 mb-6">₱1,499</div>
+                <div class="text-3xl font-bold text-white mb-6">$24.99 <span class="text-sm text-violet-400 font-normal">(₱1,496)</span></div>
                 <button onclick="selectTier('family')" class="mt-auto bg-violet-600 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-violet-500 transition">Select</button>
             </div>
             
             <div class="glass-card p-6 rounded-2xl flex flex-col">
                 <h3 class="font-bold text-white mb-2 uppercase text-sm">Barkada Link</h3>
                 <p class="text-xs text-gray-400 mb-6 flex-grow">Perfect for large groups, gaming squads, or tight-knit friends. A <strong>maximum of 20 emails</strong> must be listed to secure the unified group domain.</p>
-                <div class="text-2xl font-bold text-violet-400 mb-6">₱2,499</div>
+                <div class="text-3xl font-bold text-white mb-6">$41.99 <span class="text-sm text-violet-400 font-normal">(₱2,514)</span></div>
                 <button onclick="selectTier('barkada')" class="mt-auto bg-slate-800 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-slate-700 transition">Select</button>
             </div>
         </div>
@@ -123,11 +125,11 @@
                 </div>
 
                 <select name="tier" id="tierSelect" onchange="toggleForm()" class="form-input text-sm bg-slate-900 border-slate-700">
-                    <option value="student">Student Starter ($26.88 / ₱1,609.57)</option>
+                    <option value="student">Student Starter ($14.88 / ₱890.00)</option>
                     <option value="freelancer">Freelancer Pro ($51.88 / ₱3,106.57)</option>
-                    <option value="solo" selected>Solo Identity (₱299)</option>
-                    <option value="family">Family Heritage (₱1,499)</option>
-                    <option value="barkada">Barkada Link (₱2,499)</option>
+                    <option value="solo" selected>Solo Identity ($4.99 / ₱299.00)</option>
+                    <option value="family">Family Heritage ($24.99 / ₱1,496.00)</option>
+                    <option value="barkada">Barkada Link ($41.99 / ₱2,514.00)</option>
                 </select>
 
                 <div id="configSolo" class="p-4 bg-slate-900 rounded-lg">
@@ -188,7 +190,7 @@
             solo.classList.add('hidden');
             custom.classList.add('hidden');
             
-            if (val === 'solo' || val === 'student') solo.classList.remove('hidden');
+            if (val === 'solo' || val === 'student' || val === 'family' || val === 'barkada') solo.classList.remove('hidden');
             else custom.classList.remove('hidden');
         }
         function selectTier(t) {
