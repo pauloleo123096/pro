@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Director & Cinematographer | Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f5f5f5; }
+        h1, h2, h3, .cinematic-text { font-family: 'Playfair Display', serif; }
+        .form-input { background-color: transparent; border: 1px solid #333; padding: 1rem; color: white; width: 100%; transition: all 0.3s ease; }
+        .form-input:focus { outline: none; border-color: #f5f5f5; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    </style>
+</head>
+<body class="selection:bg-white selection:text-black">
+
+    <nav class="fixed w-full z-50 mix-blend-difference px-8 py-6">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="text-sm font-bold tracking-[0.3em] uppercase">V I S I O N</div>
+            <div class="flex space-x-8 text-xs tracking-[0.2em] uppercase">
+                <a href="#work" class="hover:text-gray-400 transition">Selected Work</a>
+                <a href="#contact" class="hover:text-gray-400 transition">Inquiries</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative h-screen flex flex-col items-center justify-center text-center px-4">
+        <div class="absolute inset-0 bg-zinc-900 overflow-hidden z-[-1]">
+            <div class="absolute inset-0 bg-black/60 z-10"></div>
+            <div class="w-full h-full flex items-center justify-center text-zinc-800 font-mono text-sm">[Background Stills / Reel Placeholder]</div>
+        </div>
+
+        <h1 class="text-6xl md:text-8xl font-semibold tracking-tight mb-4">Visual Storytelling.</h1>
+        <p class="text-gray-400 tracking-[0.2em] uppercase text-xs md:text-sm max-w-xl mx-auto leading-loose mb-10">Director — Cinematographer — Editor based in Cebu.</p>
+        
+        <a href="#work" class="border border-white/30 hover:border-white px-8 py-4 text-xs tracking-[0.2em] uppercase transition duration-300 backdrop-blur-sm">Watch Reel</a>
+    </section>
+
+    <section id="work" class="py-24 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="flex items-center justify-between mb-16">
+            <h2 class="text-3xl md:text-4xl">Selected Campaigns</h2>
+            <div class="h-px bg-zinc-800 flex-grow ml-8"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+            <div class="group cursor-pointer">
+                <div class="aspect-video bg-zinc-900 w-full mb-4 overflow-hidden relative">
+                    <div class="absolute inset-0 flex items-center justify-center text-zinc-700 font-mono text-xs">[Vimeo / YouTube Embed]</div>
+                </div>
+                <h3 class="text-xl mb-1 group-hover:text-gray-300 transition">Neon Nights Documented</h3>
+                <p class="text-xs text-gray-500 tracking-widest uppercase">Commercial / 2026</p>
+            </div>
+
+            <div class="group cursor-pointer">
+                <div class="aspect-video bg-zinc-900 w-full mb-4 overflow-hidden relative">
+                    <div class="absolute inset-0 flex items-center justify-center text-zinc-700 font-mono text-xs">[Vimeo / YouTube Embed]</div>
+                </div>
+                <h3 class="text-xl mb-1 group-hover:text-gray-300 transition">Echoes of the City</h3>
+                <p class="text-xs text-gray-500 tracking-widest uppercase">Short Film / 2025</p>
+            </div>
+            
+            <div class="group cursor-pointer">
+                <div class="aspect-video bg-zinc-900 w-full mb-4 overflow-hidden relative">
+                    <div class="absolute inset-0 flex items-center justify-center text-zinc-700 font-mono text-xs">[Vimeo / YouTube Embed]</div>
+                </div>
+                <h3 class="text-xl mb-1 group-hover:text-gray-300 transition">Athleta Fall Collection</h3>
+                <p class="text-xs text-gray-500 tracking-widest uppercase">Brand Anthem / 2025</p>
+            </div>
+
+            <div class="group cursor-pointer">
+                <div class="aspect-video bg-zinc-900 w-full mb-4 overflow-hidden relative">
+                    <div class="absolute inset-0 flex items-center justify-center text-zinc-700 font-mono text-xs">[Vimeo / YouTube Embed]</div>
+                </div>
+                <h3 class="text-xl mb-1 group-hover:text-gray-300 transition">The Artisan's Process</h3>
+                <p class="text-xs text-gray-500 tracking-widest uppercase">Documentary / 2024</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 px-4 md:px-8 bg-zinc-950 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl mb-8">Let's create.</h2>
+            <p class="text-gray-400 text-sm md:text-base leading-relaxed mb-12 max-w-xl mx-auto">Available for commercial projects, music videos, and creative direction. Drop a brief below and let's discuss your vision.</p>
+            
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 text-left">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" name="name" placeholder="Name / Agency" class="form-input" required>
+                    <input type="email" name="email" placeholder="Email Address" class="form-input" required>
+                </div>
+                <input type="text" name="subject" placeholder="Project Subject (e.g., Summer Campaign Shoot)" class="form-input" required>
+                <textarea name="message" placeholder="Tell me about the project, timeline, and rough budget..." rows="5" class="form-input" required></textarea>
+                
+                <button type="submit" class="w-full bg-white text-black hover:bg-gray-200 py-4 font-bold tracking-[0.2em] uppercase text-xs transition duration-300">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center border-t border-zinc-900">
+        <div class="flex justify-center gap-8 mb-8 text-xs tracking-[0.2em] uppercase text-gray-500">
+            <a href="#" class="hover:text-white transition">Instagram</a>
+            <a href="#" class="hover:text-white transition">Vimeo</a>
+            <a href="#" class="hover:text-white transition">LinkedIn</a>
+        </div>
+        <p class="text-zinc-700 text-[10px] tracking-widest uppercase">
+            ⚡ Powered by <a href="https://pro.lvlupgames.org" target="_blank" class="text-zinc-400 hover:text-white transition">LVLUP PRO</a>.
+        </p>
+    </footer>
+
+</body>
+</html>
