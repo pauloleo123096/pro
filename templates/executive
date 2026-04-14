@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria Santos | B2B Marketing Consultant</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; color: #111827; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid #f3f4f6; }
+        .form-input { background-color: #ffffff; border: 1px solid #d1d5db; border-radius: 0.5rem; padding: 0.75rem 1rem; width: 100%; transition: all 0.2s; }
+        .form-input:focus { outline: none; border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); }
+        .shadow-soft { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+    </style>
+</head>
+<body class="selection:bg-indigo-100 selection:text-indigo-900">
+
+    <nav class="fixed w-full z-50 glass-nav px-6 py-4">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="text-xl font-bold tracking-tight text-gray-900">Maria Santos<span class="text-indigo-600">.</span></div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+                <a href="#services" class="hover:text-indigo-600 transition">Services</a>
+                <a href="#testimonials" class="hover:text-indigo-600 transition">Client Wins</a>
+                <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+            </div>
+            <a href="#contact" class="bg-gray-900 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition">Book a Call</a>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <div class="inline-block bg-indigo-50 text-indigo-700 font-semibold px-3 py-1 rounded-full text-xs mb-6 border border-indigo-100">Fractional CMO & Strategist</div>
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6 text-gray-900">
+                    Scale your startup with <span class="text-indigo-600">data-driven</span> marketing.
+                </h1>
+                <p class="text-gray-600 text-lg mb-8 max-w-lg leading-relaxed">
+                    I help B2B SaaS companies and agencies build predictable revenue engines. Stop guessing and start growing with a proven framework.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-indigo-600 text-white text-center px-8 py-3.5 rounded-lg font-medium hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">Schedule Strategy Session</a>
+                </div>
+            </div>
+            <div class="order-1 md:order-2">
+                <div class="w-full aspect-[4/5] bg-gray-200 rounded-2xl shadow-soft flex items-center justify-center overflow-hidden border border-gray-100 relative">
+                    <span class="text-gray-400 font-mono text-sm">[Professional Headshot]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-y border-gray-200 bg-white py-10 px-6">
+        <div class="max-w-6xl mx-auto">
+            <p class="text-center text-sm font-medium text-gray-400 mb-6 uppercase tracking-wider">Trusted by founders at</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale">
+                <span class="font-bold text-xl">[Company Logo]</span>
+                <span class="font-bold text-xl">[Company Logo]</span>
+                <span class="font-bold text-xl">[Company Logo]</span>
+                <span class="font-bold text-xl">[Company Logo]</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">How we can work together</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Tailored consulting packages designed to solve specific growth bottlenecks in your business.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-gray-100 hover:border-indigo-100 hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 mb-6 text-xl">1</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Growth Audit</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">A comprehensive teardown of your current funnels, ad accounts, and conversion metrics to identify immediate quick wins.</p>
+                    <ul class="text-sm text-gray-500 space-y-2 mb-8">
+                        <li class="flex items-center gap-2">✓ SEO Analysis</li>
+                        <li class="flex items-center gap-2">✓ Funnel Mapping</li>
+                        <li class="flex items-center gap-2">✓ 30-Day Action Plan</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-indigo-200 relative transform md:-translate-y-4">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase">Most Popular</div>
+                    <div class="w-12 h-12 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 mb-6 text-xl">2</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Fractional CMO</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Ongoing strategic leadership for your marketing team without the overhead of a full-time executive hire.</p>
+                    <ul class="text-sm text-gray-500 space-y-2 mb-8">
+                        <li class="flex items-center gap-2">✓ Weekly Leadership Calls</li>
+                        <li class="flex items-center gap-2">✓ Campaign Management</li>
+                        <li class="flex items-center gap-2">✓ Vendor Vetting</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-soft border border-gray-100 hover:border-indigo-100 hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 mb-6 text-xl">3</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Go-To-Market Setup</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Launching a new product? We will build the positioning, messaging, and launch strategy from scratch.</p>
+                    <ul class="text-sm text-gray-500 space-y-2 mb-8">
+                        <li class="flex items-center gap-2">✓ Ideal Customer Profile</li>
+                        <li class="flex items-center gap-2">✓ Copywriting Frameworks</li>
+                        <li class="flex items-center gap-2">✓ Launch Distribution</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-24 px-6 bg-indigo-900 text-white text-center">
+        <div class="max-w-4xl mx-auto">
+            <svg class="w-10 h-10 mx-auto text-indigo-400 mb-6 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            <p class="text-2xl md:text-3xl font-medium leading-relaxed mb-8">
+                "Maria completely restructured our inbound funnel. Within 90 days, we saw a 40% decrease in our Customer Acquisition Cost and doubled our qualified demos."
+            </p>
+            <div class="font-bold">David Chen</div>
+            <div class="text-indigo-300 text-sm">CEO, TechFlow Solutions</div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 bg-white">
+        <div class="max-w-3xl mx-auto bg-gray-50 p-8 md:p-12 rounded-3xl border border-gray-200 shadow-soft">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Request a Consultation</h2>
+                <p class="text-gray-600">Fill out the form below to see if we're a good fit. I reply to all inquiries within 1 business day.</p>
+            </div>
+            
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                        <input type="text" name="name" class="form-input" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Work Email</label>
+                        <input type="email" name="email" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Company Website</label>
+                    <input type="url" name="website" placeholder="https://" class="form-input">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">What is your primary growth bottleneck?</label>
+                    <textarea name="message" rows="4" class="form-input" required></textarea>
+                </div>
+                
+                <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-4 rounded-xl hover:bg-indigo-700 transition shadow-md">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-gray-200 bg-white">
+        <p class="text-gray-500 text-xs font-medium uppercase tracking-widest">
+            ⚡ Professional Identity powered by <a href="https://pro.lvlupgames.org" target="_blank" class="text-indigo-600 hover:text-indigo-800 transition">LVLUP PRO</a>.
+        </p>
+    </footer>
+
+</body>
+</html>
