@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LVLUP Pro | Professional Identity Hub</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        h1, h2, h3, .brand { font-family: 'Rajdhani', sans-serif; }
+        .hero-gradient { background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); }
+        .glass-card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(71, 85, 105, 0.5); backdrop-filter: blur(10px); }
+        .form-input { background-color: rgba(15, 23, 42, 0.8); border: 1px solid rgba(71, 85, 105, 0.5); border-radius: 0.5rem; padding: 0.75rem 1rem; color: white; width: 100%; transition: all 0.3s ease; }
+        .form-input:focus { outline: none; border-color: #8b5cf6; box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2); }
+        
+        /* Modal Logic */
+        #termsModal { display: none; }
+        #termsModal.active { display: flex; }
+
+        /* Hide default detail marker for custom arrow */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="selection:bg-violet-500 selection:text-white">
+
+    <nav class="sticky top-0 z-40 glass-card px-8 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="brand text-2xl font-bold tracking-tighter text-violet-500">LVLUP<span class="text-white">PRO</span></div>
+            </div>
+            <div class="hidden md:flex space-x-8 text-[10px] uppercase tracking-[0.2em]">
+                <a href="#about" class="hover:text-violet-400 transition-colors">About</a>
+                <a href="#original-2" class="hover:text-violet-400 transition-colors">The Originals</a>
+                <a href="#new-tiers" class="hover:text-violet-400 transition-colors">Bundles</a>
+                <a href="#book" class="text-violet-400 font-bold transition-colors">Order</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-gradient min-h-[50vh] flex flex-col items-center justify-center text-center px-4 pt-12 pb-20">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 uppercase tracking-tight">Your Name. <span class="text-violet-500">Professional.</span></h1>
+        <p class="max-w-xl text-gray-400 mb-8">Premium email routing for Filipino students and freelancers. One-time setup fee.</p>
+        <div class="flex gap-4">
+            <a href="#original-2" class="bg-violet-600 px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-violet-500 transition">Start Here</a>
+        </div>
+    </section>
+
+    <section class="py-16 px-8 max-w-7xl mx-auto relative z-10 mt-[-4rem]" id="about">
+        <div class="glass-card p-8 md:p-12 rounded-3xl shadow-2xl">
+            <div class="mb-12 text-center">
+                <h2 class="text-3xl font-bold text-white uppercase tracking-widest mb-4">About <span class="text-violet-500">LVLUP Pro</span></h2>
+                <p class="text-gray-300 max-w-3xl mx-auto leading-relaxed">Founded by LeeYawn, LVLUP Pro is on a mission to make custom professional emails accessible to everyone—without the hassle of expensive domains or recurring monthly hosting fees.</p>
+            </div>
+
+            <h3 class="text-xl font-bold text-violet-400 uppercase tracking-wider mb-6 border-b border-slate-700 pb-2">How It Works:</h3>
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+                    <h4 class="font-bold text-white mb-3 text-lg flex items-center gap-2"><span class="text-violet-500">1.</span> Domain Procurement</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">We use your initial setup deposit to purchase and secure your desired domain name. This domain is registered entirely in your name. We will proactively inform you of the exact annual renewal fee, and if you ever decide you no longer need our services, we will gladly process a full domain transfer to you.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+                    <h4 class="font-bold text-white mb-3 text-lg flex items-center gap-2"><span class="text-violet-500">2.</span> Email Routing Setup</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">Once your domain is secured, we handle the backend configuration, setting up your new custom email address to route directly to your existing inbox.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+                    <h4 class="font-bold text-white mb-3 text-lg flex items-center gap-2"><span class="text-violet-500">3.</span> Seamless Integration</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">We provide comprehensive, easy-to-follow instructions on how to set up SMTP forwarding (via Google App Passwords) so you can seamlessly reply and "Send As" your new custom email directly from your existing inbox.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/80 border-l-4 border-violet-500 p-6 rounded-r-xl">
+                <h4 class="text-violet-400 font-bold uppercase tracking-wider text-sm mb-2">Important Note</h4>
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    The service we provide utilizes email SMTP forwarding using standard DNS setups. This means your new professional email acts as an alias connected to your existing inbox (like a standard Gmail account). If you prefer to have a completely separate, standalone inbox for your domain, that requires purchasing dedicated email hosting (which differs from email forwarding). Our standard service package focuses strictly on providing an affordable email forwarding service using your own domain.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 px-8 max-w-7xl mx-auto" id="original-2">
+        
+        <div class="max-w-4xl mx-auto mb-10 bg-slate-800/80 border border-violet-500/30 p-6 rounded-xl text-center shadow-lg relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-violet-500"></div>
+            <h4 class="text-violet-400 font-bold uppercase tracking-wider text-sm mb-2">FYI: Pricing Transparency & Renewals</h4>
+            <p class="text-sm text-gray-300 leading-relaxed">
+                We pride ourselves on having no recurring monthly subscriptions. Our <strong>service and setup fee is strictly one-time</strong>. However, if your selected package includes a custom domain (like .tech or .org), please note that internet domains require a standard annual renewal fee (typically $6.88 to $15 depending on the domain type) starting in Year 2. If you choose a package using our <strong>@pro.lvlupgames.org</strong> domain, you will never pay a renewal fee!
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card p-8 rounded-3xl border-t-4 border-t-blue-500 flex flex-col">
+                <h3 class="text-2xl font-bold text-white uppercase mb-2">Student Starter</h3>
+                <p class="text-gray-400 text-sm mb-4 italic">Best for CVs & Portfolios. High Volume.</p>
+                <div class="text-3xl font-bold text-white mb-6">$14.88 <span class="text-xs text-slate-500 font-normal dynamic-php" data-usd="14.88">(₱890.00)</span></div>
+                <p class="text-xs text-violet-400 mb-4">*Includes $8 one-time setup fee + domain cost</p>
+                <ul class="text-xs text-gray-300 space-y-3 mb-8 flex-grow">
+                    <li>✔ 1 Alias @pro.lvlupgames.org</li>
+                    <li>✔ <strong>Option for Custom Domain (.tech, .me, .org)</strong></li>
+                    <li>✔ Lifetime routing to your personal Gmail</li>
+                    <li>✔ Self-serve Setup (Instruction Manual)</li>
+                    <li class="text-gray-400 border border-slate-700 p-2 rounded-lg bg-slate-900/50 mt-2">➕ Custom Landing Page (Available as Add-on)</li>
+                </ul>
+                <button onclick="selectTier('student')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-[10px] uppercase tracking-widest transition">Choose Starter</button>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl border-t-4 border-t-emerald-500 flex flex-col">
+                <h3 class="text-2xl font-bold text-white uppercase mb-2">Freelancer Pro</h3>
+                <p class="text-gray-400 text-sm mb-4 italic">Build high-authority trust. B2B Premium.</p>
+                <div class="text-3xl font-bold text-white mb-6">$24.88 <span class="text-xs text-slate-500 font-normal dynamic-php" data-usd="24.88">(₱1,490.00)</span></div>
+                <p class="text-xs text-violet-400 mb-4">*Includes $18 one-time setup fee + domain cost</p>
+                <ul class="text-xs text-gray-300 space-y-3 mb-8 flex-grow">
+                    <li>✔ High-authority Identity Setup</li>
+                    <li>✔ <strong>Porkbun Custom Domain Ready</strong></li>
+                    <li>✔ SMTP Send-Mail-As Configuration</li>
+                    <li>✔ Comprehensive Self-Serve Guide</li>
+                    <li>✔ Includes Custom Landing Page Deployment</li>
+                </ul>
+                <button onclick="selectTier('freelancer')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-[10px] uppercase tracking-widest transition">Choose Pro</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-900/50" id="new-tiers">
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 rounded-2xl flex flex-col">
+                <h3 class="font-bold text-white mb-2 uppercase text-sm">Solo @pro.lvlupgames.org</h3>
+                <p class="text-xs text-gray-400 mb-6 flex-grow">Establish a clean, professional identity. We will exclusively use the <strong>@pro.lvlupgames.org</strong> domain as your designated email alias.</p>
+                <div class="text-3xl font-bold text-white mb-6">$4.99 <span class="text-sm text-violet-400 font-normal dynamic-php" data-usd="4.99">(₱299)</span></div>
+                <button onclick="selectTier('solo')" class="mt-auto bg-slate-800 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-slate-700 transition">Select</button>
+            </div>
+            
+            <div class="glass-card p-6 rounded-2xl border border-violet-500/50 flex flex-col">
+                <h3 class="font-bold text-white mb-2 uppercase text-sm">Family Heritage</h3>
+                <p class="text-xs text-gray-400 mb-6 flex-grow">Connect your entire household. As long as you request to add someone from the family, we will cater to it! Includes a <strong>maximum of 10 emails</strong>.</p>
+                <div class="text-3xl font-bold text-white mb-6">$24.99 <span class="text-sm text-violet-400 font-normal dynamic-php" data-usd="24.99">(₱1,496)</span></div>
+                <button onclick="selectTier('family')" class="mt-auto bg-violet-600 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-violet-500 transition">Select</button>
+            </div>
+            
+            <div class="glass-card p-6 rounded-2xl flex flex-col">
+                <h3 class="font-bold text-white mb-2 uppercase text-sm">Barkada Link</h3>
+                <p class="text-xs text-gray-400 mb-6 flex-grow">Perfect for large groups, gaming squads, or tight-knit friends. A <strong>maximum of 20 emails</strong> must be listed to secure the unified group domain.</p>
+                <div class="text-3xl font-bold text-white mb-6">$41.99 <span class="text-sm text-violet-400 font-normal dynamic-php" data-usd="41.99">(₱2,514)</span></div>
+                <button onclick="selectTier('barkada')" class="mt-auto bg-slate-800 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-slate-700 transition">Select</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 max-w-3xl mx-auto" id="book">
+        <div class="glass-card p-8 rounded-3xl">
+            <h2 class="text-2xl font-bold text-white text-center mb-8 uppercase tracking-widest">Order Intake</h2>
+            <form id="orderForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+                <input type="hidden" name="access_key" value="d18bfd65-9618-428a-88c0-e6011ec0f238">
+                
+                <div class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">1. Full Name(s)</label>
+                            <input type="text" name="name" placeholder="First and Last Name" class="form-input text-sm" required>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">2. Routing Email</label>
+                            <input type="email" name="routing_email" placeholder="e.g. your@gmail.com" class="form-input text-sm" required>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">Phone / Viber (Optional)</label>
+                            <input type="tel" name="phone" placeholder="For setup coordination" class="form-input text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-1">Agent Code (Optional)</label>
+                            <input type="text" name="agent_code" placeholder="e.g., MICA2026" class="form-input text-sm border-emerald-500/30 focus:border-emerald-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">Select Package Tier</label>
+                        <select name="tier" id="tierSelect" onchange="updateFormContext()" class="form-input text-sm bg-slate-900 border-slate-700">
+                            <option value="student" data-usd="14.88" data-name="Student Starter">Student Starter ($14.88 / ₱890)</option>
+                            <option value="freelancer" data-usd="24.88" data-name="Freelancer Pro">Freelancer Pro ($24.88 / ₱1,490)</option>
+                            <option value="solo" selected data-usd="4.99" data-name="Solo Identity">Solo Identity ($4.99 / ₱299)</option>
+                            <option value="family" data-usd="24.99" data-name="Family Heritage">Family Heritage ($24.99 / ₱1,496)</option>
+                            <option value="barkada" data-usd="41.99" data-name="Barkada Link">Barkada Link ($41.99 / ₱2,514)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">3. Domain Request</label>
+                        <input type="text" name="domain_request" placeholder="e.g., myname.org (or type 'N/A' if using @pro.lvlupgames.org)" class="form-input text-sm" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">4. Preferred Email(s)</label>
+                        <textarea name="preferred_emails" placeholder="e.g., hello@... (For Family/Barkada tiers, list all requested aliases here)" class="form-input text-sm" rows="3" required></textarea>
+                    </div>
+
+                    <div class="p-4 bg-slate-900/80 rounded-lg border border-slate-700">
+                        <h4 class="text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-3">5. Extras & Add-ons</h4>
+                        
+                        <label class="flex items-start space-x-3 cursor-pointer mb-3">
+                            <input type="checkbox" name="addon_landing_page" id="addonLandingPage" class="mt-1">
+                            <span class="text-xs text-gray-300 flex-col flex">
+                                <span>Custom Landing Page Deployment</span>
+                                <span id="landingPageHint" class="text-[10px] text-gray-500 italic">(Available as Add-on)</span>
+                            </span>
+                        </label>
+                        
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="checkbox" name="addon_priority" class="mt-1">
+                            <span class="text-xs text-gray-300">Priority 24-Hour Setup Rush</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <label class="flex items-start space-x-3 cursor-pointer">
+                        <input type="checkbox" required class="mt-1">
+                        <span class="text-[10px] text-gray-500 uppercase tracking-tighter leading-tight">
+                            I agree to the <button type="button" onclick="toggleModal()" class="text-violet-400 underline">Terms & Conditions</button>. I understand this is a setup service, not email hosting, and domains require annual renewal.
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full bg-violet-600 py-4 rounded-xl font-bold text-xs uppercase tracking-[0.2em] hover:bg-violet-500 transition">Submit Order</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="termsModal" class="fixed inset-0 z-50 bg-slate-950/90 items-center justify-center p-4">
+        <div class="glass-card w-full max-w-2xl max-h-[80vh] overflow-y-auto p-8 rounded-3xl shadow-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-violet-400 uppercase">Terms & Conditions</h2>
+                <button onclick="toggleModal()" class="text-gray-400 hover:text-white">✕</button>
+            </div>
+            <div class="text-xs text-gray-300 space-y-4 leading-relaxed">
+                <p><strong>1. Nature of Service:</strong> LVLUP Pro is a technical configuration service. We provide routing, not email hosting. Your mail will still live on your destination server (e.g., Gmail).</p>
+                <p><strong>2. One-Time Fee & Renewals:</strong> Our setup service fee is a one-time payment. However, for tiers with custom domains, the fee covers Year 1 of the domain registration. Annual domain renewal fees thereafter are the strict responsibility of the customer. Domains that are not renewed will expire, and email forwarding will cease.</p>
+                <p><strong>3. Reputation:</strong> You may not use aliases under the LVLUP Games network for spam, phishing, or illegal acts. Violation results in immediate termination.</p>
+                <p><strong>4. Liability:</strong> We are not liable for outages from third-party providers like Google, Porkbun, or Cloudflare.</p>
+                <p><strong>5. Privacy:</strong> We collect your name and email only for setup. We never see your Gmail password.</p>
+            </div>
+            <button onclick="toggleModal()" class="mt-8 w-full bg-slate-800 py-3 rounded-xl font-bold uppercase text-[10px] hover:bg-slate-700 transition">Close</button>
+        </div>
+    </div>
+
+    <footer class="py-12 px-8 max-w-4xl mx-auto text-center text-gray-600 border-t border-slate-900">
+        <details class="mb-8 text-left bg-slate-900/30 border border-slate-800 rounded-xl p-4 group cursor-pointer transition-all duration-300">
+            <summary class="text-xs text-violet-400 font-bold uppercase tracking-widest flex justify-between items-center">
+                Privacy Policy & Data Handling
+                <span class="group-open:rotate-180 transition-transform text-lg leading-none">▾</span>
+            </summary>
+            <div class="mt-4 text-xs text-gray-400 space-y-3 leading-relaxed border-t border-slate-8
