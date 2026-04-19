@@ -159,18 +159,22 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">1. Full Name(s)</label>
+                            <p class="text-[9px] text-gray-400 mb-2 leading-tight">The legal name to be used for domain registration purposes.</p>
                             <input type="text" name="name" placeholder="First and Last Name" class="form-input text-sm" required>
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">2. Routing Email</label>
+                            <p class="text-[9px] text-gray-400 mb-2 leading-tight">Your current personal inbox (e.g., Gmail) where we will forward your new messages.</p>
                             <input type="email" name="routing_email" placeholder="e.g. your@gmail.com" class="form-input text-sm" required>
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">Phone / Viber (Optional)</label>
-                            <input type="tel" name="phone" placeholder="For setup coordination" class="form-input text-sm">
+                            <p class="text-[9px] text-gray-400 mb-2 leading-tight">For quick setup coordination or issues.</p>
+                            <input type="tel" name="phone" placeholder="Contact number" class="form-input text-sm">
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-1">Agent Code (Optional)</label>
+                            <p class="text-[9px] text-gray-400 mb-2 leading-tight">Enter a valid agent code for priority routing.</p>
                             <input type="text" name="agent_code" placeholder="e.g., MICA2026" class="form-input text-sm border-emerald-500/30 focus:border-emerald-500">
                         </div>
                     </div>
@@ -188,11 +192,13 @@
 
                     <div>
                         <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">3. Domain Request</label>
+                        <p class="text-[9px] text-gray-400 mb-2 leading-tight">The website address you want to own (e.g., myname.com). If using our base tier, just type 'N/A'.</p>
                         <input type="text" name="domain_request" placeholder="e.g., myname.org (or type 'N/A' if using @pro.lvlupgames.org)" class="form-input text-sm" required>
                     </div>
 
                     <div>
                         <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">4. Preferred Email(s)</label>
+                        <p class="text-[9px] text-gray-400 mb-2 leading-tight">The exact professional address you want created (e.g., contact@myname.com).</p>
                         <textarea name="preferred_emails" placeholder="e.g., hello@... (For Family/Barkada tiers, list all requested aliases here)" class="form-input text-sm" rows="3" required></textarea>
                     </div>
 
@@ -355,12 +361,12 @@
 
             const typedCode = agentInput.value.trim().toUpperCase();
 
-            // If empty, let it submit normally
+            // If empty, let it submit normally to Web3Forms
             if (!typedCode) {
                 return; 
             }
 
-            // Stop standard submission to check the code
+            // Stop standard submission to check the code first
             event.preventDefault(); 
 
             try {
@@ -378,7 +384,7 @@
                                        .filter(code => code.length > 0);
 
                 if (validCodes.includes(typedCode)) {
-                    // Code matches! Submit the form manually
+                    // Code matches! Submit the form natively to Web3Forms
                     form.submit();
                 } else {
                     // Code failed. Show error and focus the input box.
