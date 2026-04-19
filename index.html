@@ -154,6 +154,7 @@
             <h2 class="text-2xl font-bold text-white text-center mb-8 uppercase tracking-widest">Order Intake</h2>
             <form id="orderForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
                 <input type="hidden" name="access_key" value="d18bfd65-9618-428a-88c0-e6011ec0f238">
+                <input type="hidden" name="redirect" value="https://pro.lvlupgames.org">
                 
                 <div class="space-y-4">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -192,8 +193,8 @@
 
                     <div>
                         <label class="block text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-1">3. Domain Request</label>
-                        <p class="text-[9px] text-gray-400 mb-2 leading-tight">The website address you want to own (e.g., myname.com). If using our base tier, just type 'N/A'.</p>
-                        <input type="text" name="domain_request" placeholder="e.g., myname.org (or type 'N/A' if using @pro.lvlupgames.org)" class="form-input text-sm" required>
+                        <p class="text-[9px] text-gray-400 mb-2 leading-tight">The website address you want to own (e.g., myname.com). If using our base tier, this is N/A.</p>
+                        <input type="text" id="domainInput" name="domain_request" placeholder="e.g., myname.org" class="form-input text-sm" required>
                     </div>
 
                     <div>
@@ -281,8 +282,9 @@
             const tier = document.getElementById('tierSelect').value;
             const lpCheckbox = document.getElementById('addonLandingPage');
             const lpHint = document.getElementById('landingPageHint');
+            const domainInput = document.getElementById('domainInput');
 
-            // Handle Landing Page Add-on Logic
+            // 1. Handle Landing Page Add-on Logic
             if (tier === 'freelancer') {
                 lpCheckbox.checked = true;
                 lpCheckbox.disabled = true;
@@ -295,6 +297,19 @@
                 lpHint.innerHTML = "(Available as Add-on)";
                 lpHint.classList.add("text-gray-500");
                 lpHint.classList.remove("text-emerald-400");
+            }
+
+            // 2. Handle Smart Domain Input Logic
+            if (tier === 'solo' || tier === 'family' || tier === 'barkada') {
+                domainInput.value = "N/A (@pro.lvlupgames.org)";
+                domainInput.readOnly = true;
+                domainInput.classList.add("opacity-50", "cursor-not-allowed");
+            } else {
+                if (domainInput.value === "N/A (@pro.lvlupgames.org)") {
+                    domainInput.value = ""; 
+                }
+                domainInput.readOnly = false;
+                domainInput.classList.remove("opacity-50", "cursor-not-allowed");
             }
         }
 
@@ -316,21 +331,18 @@
         // --- DYNAMIC PESO CONVERSION LOGIC ---
         async function fetchLiveExchangeRate() {
             try {
-                // Free, no-key CDN endpoint for daily currency rates
                 const response = await fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json');
                 if (!response.ok) throw new Error("Network response was not ok");
                 
                 const data = await response.json();
-                const phpRate = data.usd.php; // The live exchange multiplier
+                const phpRate = data.usd.php; 
 
-                // 1. Update the display spans
                 document.querySelectorAll('.dynamic-php').forEach(element => {
                     const usdValue = parseFloat(element.getAttribute('data-usd'));
                     const phpValue = (usdValue * phpRate).toLocaleString('en-PH', {minimumFractionDigits: 0, maximumFractionDigits: 0});
                     element.innerText = `(₱${phpValue})`;
                 });
 
-                // 2. Update the dropdown form options
                 document.querySelectorAll('#tierSelect option').forEach(option => {
                     const usdValue = parseFloat(option.getAttribute('data-usd'));
                     const baseName = option.getAttribute('data-name');
@@ -346,55 +358,55 @@
         // Initialize script on page load
         window.onload = () => {
             updateFormContext();
-            fetchLiveExchangeRate(); // Trigger the exchange rate fetch
+            fetchLiveExchangeRate(); 
         };
 
-        // --- AGENT CODE VALIDATION LOGIC ---
+        // --- AGENT CODE VALIDATION & SUBMISSION LOGIC ---
         const form = document.getElementById('orderForm');
         const agentInput = document.querySelector('input[name="agent_code"]');
+        const submitBtn = form.querySelector('button[type="submit"]');
 
         form.addEventListener('submit', async function(event) {
-            // Let native HTML5 validation (like required checkboxes) run first
             if (!form.checkValidity()) {
                 return; 
             }
 
             const typedCode = agentInput.value.trim().toUpperCase();
 
-            // If empty, let it submit normally to Web3Forms
-            if (!typedCode) {
-                return; 
-            }
+            // Check Agent Code (If one was typed)
+            if (typedCode) {
+                event.preventDefault(); // Pause submission to check code
+                submitBtn.innerText = "VALIDATING..."; // UI Feedback
+                submitBtn.disabled = true;
 
-            // Stop standard submission to check the code first
-            event.preventDefault(); 
+                try {
+                    const response = await fetch('/agentcode.txt');
+                    if (!response.ok) throw new Error("Could not find agentcode.txt");
 
-            try {
-                // Fetch the text file
-                const response = await fetch('/agentcode.txt');
-                
-                if (!response.ok) {
-                    throw new Error("Could not find agentcode.txt");
+                    const text = await response.text();
+                    const validCodes = text.split('\n')
+                                           .map(code => code.trim().toUpperCase())
+                                           .filter(code => code.length > 0);
+
+                    if (validCodes.includes(typedCode)) {
+                        submitBtn.innerText = "SENDING ORDER...";
+                        form.submit(); // Code matches, push to Web3Forms
+                    } else {
+                        alert("The Agent Code you entered is invalid. Please check for typos or leave it blank.");
+                        agentInput.focus();
+                        submitBtn.innerText = "Submit Order"; // Reset button
+                        submitBtn.disabled = false;
+                    }
+                } catch (error) {
+                    console.warn("Validation skipped. Proceeding.", error);
+                    submitBtn.innerText = "SENDING ORDER...";
+                    form.submit(); 
                 }
-
-                const text = await response.text();
-                // Clean up text file into an array, ignoring blank lines
-                const validCodes = text.split('\n')
-                                       .map(code => code.trim().toUpperCase())
-                                       .filter(code => code.length > 0);
-
-                if (validCodes.includes(typedCode)) {
-                    // Code matches! Submit the form natively to Web3Forms
-                    form.submit();
-                } else {
-                    // Code failed. Show error and focus the input box.
-                    alert("The Agent Code you entered is invalid. Please check for typos or leave it blank.");
-                    agentInput.focus();
-                }
-            } catch (error) {
-                console.warn("Validation skipped. Proceeding to submit.", error);
-                // Fallback: If the txt file fails to load (e.g. server error), let the form submit anyway so you don't lose the sale
-                form.submit(); 
+            } else {
+                // If no agent code was typed, just protect against double-clicks
+                submitBtn.innerText = "SENDING ORDER...";
+                submitBtn.disabled = true;
+                // Form submits naturally
             }
         });
     </script>
